@@ -156,7 +156,7 @@ Then you’re good to go.
 
 ## 🙌 Contributing
 
-Found a bug? Got a cool idea? Fork the repo and open a pull request — happy to have help from fellow Minecraft nerds.
+Found a bug? Got a cool idea? Fork the repo and open a pull request.
 
 ---
 
