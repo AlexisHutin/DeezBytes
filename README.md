@@ -63,20 +63,61 @@ You can override these with environment variables or flags (see below).
 
 ---
 
+## Docker
+
+You can run DeezBytes using Docker:
+
+### Run with Docker 🐳
+
+Here’s an example of a docker run:
+
+```bash
+docker run -d \
+  --name deezbytes \
+  -v $(pwd)/config.yml:/config/config.yml \
+  -v /var/log:/data/var_log:ro \
+  -v /home/user/documents:/data/docs:ro \
+  -e CONFIG_PATH=/config/config.yml \
+  -p 9101:9101 \
+  ghcr.io/alexishutin/deezbytes:latest \
+  --disable-exporter-metrics \
+  --collection-timeout=10s
+```
+
+### Run with Docker Compose 🐳
+
+Here’s an example `docker-compose.yml` to get you going:
+
+```yaml
+version: '3.8'
+services:
+  deezbytes:
+    image: ghcr.io/alexishutin/deezbytes:latest
+    container_name: deezbytes
+    ports:
+      - "9101:9101"
+    volumes:
+      - ./config.yml:/config.yml:ro
+      - /var/log:/data/var_log:ro
+      - /home/user/documents:/data/docs:ro
+    environment:
+      - CONFIG_PATH=/config.yml
+    command: >
+      --collection-timeout=10s
+      --disable-exporter-metrics
+```
+
+---
+
 ### Environment variables & flags
 
 | Name / Flag                | What it does                                     | Default         |
 |---------------------------|-------------------------------------------------|-----------------|
 | `CONFIG_PATH`              | Path to your config YAML file                    | `./config.yml`  |
 | `EXPORTER_PORT`            | Port for the HTTP metrics endpoint               | `9101`          |
-| `-disable-exporter-metrics` | Disable built-in Go and process metrics          | `false`         |
-| `-collection-timeout`      | Max time to spend collecting directory sizes     | `15s`           |
+| `--disable-exporter-metrics` | Disable built-in Go and process metrics          | `false`         |
+| `--collection-timeout`      | Max time to spend collecting directory sizes     | `15s`           |
 
-Example running with timeout and metrics disabled:
-
-```bash
-./deezbytes -collection-timeout=10s -disable-exporter-metrics
-```
 
 ---
 
