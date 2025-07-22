@@ -74,10 +74,10 @@ Here’s an example of a docker run:
 ```bash
 docker run -d \
   --name deezbytes \
-  -v $(pwd)/config.yml:/config/config.yml \
+  -v $(pwd)/config.yml:/config.yml \
   -v /var/log:/data/var_log:ro \
   -v /home/user/documents:/data/docs:ro \
-  -e CONFIG_PATH=/config/config.yml \
+  -e CONFIG_PATH=/config.yml \
   -p 9101:9101 \
   ghcr.io/alexishutin/deezbytes:latest \
   --disable-exporter-metrics \
