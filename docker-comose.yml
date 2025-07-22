@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  deezbytes:
+    image: ghcr.io/alexishutin/deezbytes:latest
+    container_name: deezbytes
+    ports:
+      - "9101:9101"
+    volumes:
+      - ./config.yml:/config.yml:ro
+      - /var/log:/data/var_log:ro
+      - /home/user/documents:/data/docs:ro
+    environment:
+      - CONFIG_PATH=/config.yml
+    command: >
+      --collection-timeout=10s
+      --disable-exporter-metrics
