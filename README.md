@@ -146,11 +146,11 @@ Then you’re good to go.
 
 ## TODO
 
-- **Dockerfile:** create an official Docker image for easy deployment  
-- **Docker Compose:** example setup for quick testing with Prometheus + DeezBytes  
-- **CI/CD:** add GitHub Actions or other pipeline for automated build & test  
-- **Grafana example:** dashboard config to visualize directory size trends 
-- **Documentation:** a better doc to explain things 
+- [x] **Dockerfile:** create an official Docker image for easy deployment  
+- [x] **Docker Compose:** example setup for quick testing with Prometheus + DeezBytes  
+- [x] **CI/CD:** add GitHub Actions or other pipeline for automated build & test  
+- [ ] **Grafana example:** dashboard config to visualize directory size trends 
+- [ ] **Documentation:** a better doc to explain things 
 
 ---
 
